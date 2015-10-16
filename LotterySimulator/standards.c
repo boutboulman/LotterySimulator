@@ -1,9 +1,6 @@
 #include "standards.h"
 #include <stdlib.h>
 
-#define MAX_MACHINE_SIZE 100
-#define MACHINE_SIZE 49
-#define REG_SELECTION_SIZE 6
 
 
 int* LoadMachine(int n)
@@ -27,11 +24,15 @@ Ticket GenerateTicket()
 	int balls_left = MACHINE_SIZE;
 	int chosen_ball;
 
-	for (i = 0; i < REG_SELECTION_SIZE; i++)
+
+	int divisor = RAND_MAX / 50;
+	int mymax = RAND_MAX;
+
+	for (i = 0; i < REG_SELECTION_SIZE; ++i)
 	{
 		chosen_ball = (rand() % (balls_left));
 		ticket.reg_selection[i] = loaded_machine[chosen_ball];
-		loaded_machine[chosen_ball] = loaded_machine[balls_left - 1]; //replace the chosen ball with the last ball
+		loaded_machine[chosen_ball] = loaded_machine[balls_left - 1]; //replace the chosen ball with the last ball to fill in the gap
 		balls_left--;
 	}
 	//potentially sort these, but i'm not sure it matters

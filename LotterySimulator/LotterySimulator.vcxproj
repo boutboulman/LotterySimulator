@@ -147,9 +147,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.c" />
+    <ClCompile Include="simulation.c" />
     <ClCompile Include="standards.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="simulation.h" />
     <ClInclude Include="standards.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
